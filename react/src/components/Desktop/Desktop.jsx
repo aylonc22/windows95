@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Shortcut } from '../Shortcut/Shortcut';
-import myComputerIcon from '../../assets/images/monitor.png';
+import myComputerIcon from '../../assets/images/computer.png';
 import './Desktop.scss';
 import { Window } from '../Window/Window';
 
