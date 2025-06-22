@@ -1,0 +1,46 @@
+@import '../../styles/variables';
+
+.shortcut {
+  width: 72px;
+  margin: 12px;
+  font-family: $font-main;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  cursor: default;
+  user-select: none;
+
+  &__content {
+    padding: 6px;
+    border-radius: 4px;
+    transition: background-color 0.1s ease;
+  }
+
+  // Hover effect
+  &:hover .shortcut__content {
+    background-color: rgba(0, 0, 255, 0.25); // light XP blue
+  }
+
+  // Active (mouse down)
+  &.active .shortcut__content {
+    background-color: rgba(0, 0, 128, 0.4); // darker blue when clicked
+  }
+
+  // Selected (clicked/focused)
+  &.selected .shortcut__content {
+    background-color: rgba(0, 0, 255, 0.5);
+    outline: 1px solid rgba(255, 255, 255, 0.8);
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+    pointer-events: none;
+  }
+
+  &__label {
+    display: block;
+    pointer-events: none;
+  }
+}

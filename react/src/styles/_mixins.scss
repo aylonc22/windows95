@@ -1,0 +1,33 @@
+// _mixins.scss
+
+@mixin xp-button {
+  background-color: $xp-accent;
+  border: 2px outset #fff;
+  padding: 4px 8px;
+  font-family: $font-main;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+
+  &:active {
+    border: 2px inset #aaa;
+  }
+}
+
+@mixin xp-window {
+  background: white;
+  border: 2px solid $xp-border;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: $font-main;
+  overflow: hidden;
+}
+
+@mixin xp-titlebar {
+  background: $xp-blue;
+  color: white;
+  padding: 4px 8px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

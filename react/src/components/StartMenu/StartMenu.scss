@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.start-menu {
+  position: absolute;
+  bottom: $taskbar-height;
+  left: 8px;
+  width: $start-menu-width;
+  background-color: $xp-light-gray;
+  border: 2px outset #fff;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  z-index: $z-startmenu;
+
+  &__item {
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 2px;
+
+    &:hover {
+      background-color: $xp-blue;
+      color: white;
+    }
+  }
+}

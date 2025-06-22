@@ -1,0 +1,42 @@
+// styles/main.scss
+
+// 1. Import variables & mixins
+@import './variables';
+@import './mixins';
+
+// 3. CSS Reset / Base styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $font-main;
+}
+
+html, body {
+  height: 100%;
+  font-family: $font-main;
+  background-color: $xp-bg;
+  color: black;
+  overflow: hidden;
+  user-select: none;
+  overflow: hidden;
+}
+
+// 4. App wrapper
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: $xp-bg;
+  font-family: $font-main;
+  overflow: hidden;
+}
+
+// 5. Optional global utility classes
+.hidden {
+  display: none !important;
+}
+
+.z-top {
+  z-index: 9999;
+}

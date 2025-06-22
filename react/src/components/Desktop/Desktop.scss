@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  background-color: $xp-bg;
+  position: relative;
+  overflow: hidden;
+  font-family: $font-main;
+}
