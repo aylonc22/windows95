@@ -15,7 +15,7 @@ export const Desktop = ({handleOpenWindow, handleCloseWindow}) => {
   
   const handleClose = (window) =>{
       setApp();
-      handleDoubleClick(window);
+      handleCloseWindow({title:window});
   }
 
   return (
@@ -31,7 +31,7 @@ export const Desktop = ({handleOpenWindow, handleCloseWindow}) => {
         }}       
       />
 
-      {app && <Window close={handleClose} title={app}  handleCloseWindow = {handleCloseWindow}/>}
+      {app && <Window close={handleClose} hide={()=>setApp()} title={app}  handleCloseWindow = {handleCloseWindow}/>}
     </div>
   );
 };

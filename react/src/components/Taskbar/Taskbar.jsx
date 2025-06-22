@@ -1,7 +1,7 @@
 import './Taskbar.scss';
 import windowsIcon from '../../assets/images/win95.png'; // adjust the path if needed
 
-export const Taskbar = ({ onStartClick, openWindows = [] }) => {
+export const Taskbar = ({ onStartClick, openWindows = [] ,setWindow}) => {
   return (
     <div className="taskbar">
       <button className="start-button" onClick={onStartClick}>
@@ -11,7 +11,7 @@ export const Taskbar = ({ onStartClick, openWindows = [] }) => {
 
       <div className="taskbar__windows">
         {openWindows.map((win, index) => (
-          <div key={index} className="taskbar__window-button">
+          <div onClick={()=>setWindow(win.title)} key={index} className="taskbar__window-button">
             <img src={win.icon} alt="" />
             <span>{win.title}</span>
           </div>
