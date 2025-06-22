@@ -7,12 +7,23 @@ import { useState } from 'react';
 
 function App() {
   const [startOpen, setStartOpen] = useState(false);
+  const [windows,setWindows] = useState([]);
+  
+  const handleOpenWindow = (window)=>{
+    if(!windows.find((win)=>window.title === win.title)){
+        setWindows(prev=>[...prev,window]);
+    }
+  }
+
+   const handleCloseWindow = (window)=>{
+    setWindows(prev=>prev.filter((win=> win.title != window.title )));
+  }
 
   return (
     <div className="app">
-      <Desktop />
+      <Desktop handleOpenWindow={handleOpenWindow}  handleCloseWindow={handleCloseWindow}/>
       {startOpen && <StartMenu />}
-      <Taskbar onStartClick={() => setStartOpen(!startOpen)} />
+      <Taskbar onStartClick={() => setStartOpen(!startOpen)} openWindows={windows} />
     </div>
   );
 }
