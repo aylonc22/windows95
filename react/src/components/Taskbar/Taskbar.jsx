@@ -1,5 +1,5 @@
 import './Taskbar.scss';
-import windowsIcon from '../../assets/images/win95.png'; // adjust the path if needed
+import windowsIcon from '../../assets/images/win95.png';
 
 export const Taskbar = ({ onStartClick, openWindows = [] ,setWindow}) => {
   return (

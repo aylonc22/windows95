@@ -1,37 +1,72 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Shortcut } from '../Shortcut/Shortcut';
 import myComputerIcon from '../../assets/images/computer.png';
+import folderIcon from '../../assets/images/folder.png';
+import resumeIcon from '../../assets/images/resume.png';
 import './Desktop.scss';
 import { Window } from '../Window/Window';
 
-export const Desktop = ({handleOpenWindow, handleCloseWindow}) => {
+export const Desktop = ({handleOpenWindow, handleCloseWindow,win,setWindow}) => {
   const [selected, setSelected] = useState(null);
-  const [app,setApp] = useState(null)
-
-  const handleDoubleClick = (window) =>{
-    setApp(window);
-    handleOpenWindow({title:window, icon:myComputerIcon});
+  const [app,setApp] = useState(win);
+ 
+  useEffect(()=>{
+ console.log("WIN CHAGE")
+    setApp(win);
+  },[win]);
+  const handleDoubleClick = (win) =>{
+    setApp(win);
+    setWindow(win);
+    handleOpenWindow({title:win, icon:myComputerIcon});
   }
   
-  const handleClose = (window) =>{
+  const handleClose = (win) =>{
       setApp();
-      handleCloseWindow({title:window});
+      setWindow();
+      handleCloseWindow({title:win});
+  }
+
+  const handleHide = ()=>{
+      setApp();
+      setWindow();
   }
 
   return (
     <div className="desktop" onClick={() => setSelected(null)}>
       <Shortcut
         icon={myComputerIcon}
-        label="My Computer"
-        onDoubleClick={() => handleDoubleClick('My Computer')}
-        selected={selected === 'my-computer'}
+        label="My Bio"
+        onDoubleClick={() => handleDoubleClick('My Bio')}
+        selected={selected === 'my-bio'}
         onClick={(e) => {
-          e.stopPropagation(); // prevent deselect from parent
-          setSelected('my-computer');
+          e.stopPropagation();
+          setSelected('my-bio');
         }}       
       />
 
-      {app && <Window close={handleClose} hide={()=>setApp()} title={app}  handleCloseWindow = {handleCloseWindow}/>}
+       <Shortcut
+        icon={resumeIcon}
+        label="Resume"
+        onDoubleClick={() => handleDoubleClick('Resume')}
+        selected={selected === 'resume'}
+        onClick={(e) => {
+          e.stopPropagation();
+          setSelected('resume');
+        }}       
+      />
+
+       <Shortcut
+        icon={folderIcon}
+        label="Games"
+        onDoubleClick={() => handleDoubleClick('Games')}
+        selected={selected === 'games'}
+        onClick={(e) => {
+          e.stopPropagation();
+          setSelected('games');
+        }}       
+      />
+
+      {app && <Window close={handleClose} hide={handleHide} title={app}  handleCloseWindow = {handleCloseWindow}/>}
     </div>
   );
 };
