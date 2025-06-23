@@ -2,8 +2,8 @@ import './StartMenu.scss';
 
 // 🔧 Mock icons (replace with real paths later)
 import windowsIcon from '../../assets/images/sidebar-image.png';
-import linkedinIcon from  '../../assets/images/sidebar-image.png';// '../../assets/images/linkedin.png';
-import githubIcon from  '../../assets/images/sidebar-image.png';//'../../assets/images/github.png';
+import linkedinIcon from  '../../assets/svg/LinkedIn.svg';// '../../assets/images/linkedin.png';
+import githubIcon from  '../../assets/svg/GitHub.svg';//'../../assets/images/github.png';
 import resumeIcon from '../../assets/images/resume.png';
 import shutdownIcon from  '../../assets/images/sidebar-image.png';//'../../assets/images/shutdown.png';
 
