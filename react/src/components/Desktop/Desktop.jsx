@@ -9,15 +9,19 @@ import { Window } from '../Window/Window';
 export const Desktop = ({handleOpenWindow, handleCloseWindow,win,setWindow}) => {
   const [selected, setSelected] = useState(null);
   const [app,setApp] = useState(win);
+  const children = {
+    'Resume': [{title:'Resume', icon:resumeIcon}],
+    'Games': [{title:'Snake', icon:resumeIcon}, {title:'Mines', icon:resumeIcon}],
+    'My Bio': 'this is some bio',
+  }
  
   useEffect(()=>{
- console.log("WIN CHAGE")
     setApp(win);
   },[win]);
   const handleDoubleClick = (win) =>{
     setApp(win);
     setWindow(win);
-    handleOpenWindow({title:win, icon:myComputerIcon});
+    handleOpenWindow({title:win, icon:handleWinIcon(win)});
   }
   
   const handleClose = (win) =>{
@@ -29,6 +33,18 @@ export const Desktop = ({handleOpenWindow, handleCloseWindow,win,setWindow}) => 
   const handleHide = ()=>{
       setApp();
       setWindow();
+  }
+
+  const handleWinIcon = (_app=undefined)=>{
+   const temp = _app ? _app : app;
+    switch (temp) {
+      case 'My Bio':
+        return myComputerIcon;           
+      case 'Resume':
+        return resumeIcon; 
+      case 'Games':
+        return folderIcon; 
+    }
   }
 
   return (
@@ -66,7 +82,7 @@ export const Desktop = ({handleOpenWindow, handleCloseWindow,win,setWindow}) => 
         }}       
       />
 
-      {app && <Window close={handleClose} hide={handleHide} title={app}  handleCloseWindow = {handleCloseWindow}/>}
+      {app && <Window type={app==='My Bio'?'file':'folder'} children={children[app]} icon={handleWinIcon()} close={handleClose} hide={handleHide} title={app}  handleCloseWindow = {handleCloseWindow}/>}
     </div>
   );
 };

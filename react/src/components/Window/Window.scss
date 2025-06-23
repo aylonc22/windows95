@@ -6,40 +6,120 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 300px;
-  @include xp-window;
+  font-family: $font-main;
+  display: flex;
+  flex-direction: column;
   z-index: $z-window;
-  border-radius: 4px;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #fff, -1px -1px 0 #808080;
+
+  &--maximized {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100vw !important;
+    height: calc(100vh - $taskbar-height) !important;
+    margin: 0;   
+    border-radius: 0;
+  }
+
+  // Window size depends on type
+  &--folder {
+    width: 640px;
+    height: 480px;
+    background-color: #c0c0c0;
+  }
+
+  &--file {
+    width: 720px;
+    height: 560px;
+    background-color: #d4d0c8;
+  }
 
   &__titlebar {
-    @include xp-titlebar;
-    height: 28px;
-    padding: 4px 8px;
+    background-color: $xp-blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 22px;
+    padding: 0 4px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #fff;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
   }
 
   &__title {
-    flex: 1;
-    font-size: 14px;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__close {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: default;
-    padding: 0 6px;
+    background: $xp-light-gray;
+    border: 2px outset #fff;
+    width: 20px;
+    height: 18px;
+    padding: 0;
+    margin-left: 2px;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
-      background-color: red;
+      background-color: $xp-accent;
+    }
+
+    &:active {
+      border: 2px inset #808080;
     }
   }
 
   &__content {
-    padding: 12px;
-    background-color: #ffffff;
-    height: calc(100% - 28px);
+    flex: 1;
+    padding: 4px;
+    border: 2px inset #fff;
+    box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #fff;
     overflow: auto;
+    font-size: 13px;
+  }
+
+  // Folder view layout
+  &__folder-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 6px;
+
+    .xp-window__folder-item {
+      width: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+      text-align: center;
+
+      img {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  // File view style
+  &__file-view {
+    font-family: monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
   }
 }
