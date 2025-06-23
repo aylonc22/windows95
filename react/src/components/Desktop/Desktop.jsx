@@ -3,6 +3,8 @@ import { Shortcut } from '../Shortcut/Shortcut';
 import myComputerIcon from '../../assets/images/computer.png';
 import folderIcon from '../../assets/images/folder.png';
 import resumeIcon from '../../assets/images/resume.png';
+import fileIcon from '../../assets/images/file.png';
+
 import './Desktop.scss';
 import { Window } from '../Window/Window';
 
@@ -10,7 +12,7 @@ export const Desktop = ({handleOpenWindow, handleCloseWindow,win,setWindow}) => 
   const [selected, setSelected] = useState(null);
   const [app,setApp] = useState(win);
   const children = {
-    'Resume': [{title:'Resume', icon:resumeIcon}],
+    'Resume': [{title:'Resume', icon:fileIcon}],
     'Games': [{title:'Snake', icon:resumeIcon}, {title:'Mines', icon:resumeIcon}],
     'My Bio': 'this is some bio',
   }

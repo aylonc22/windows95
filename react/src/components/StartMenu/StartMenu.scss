@@ -5,18 +5,48 @@
   position: absolute;
   bottom: $taskbar-height;
   left: 8px;
-  width: $start-menu-width;
+  width: $start-menu-width + 40px;
   background-color: $xp-light-gray;
   border: 2px outset #fff;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  padding: 4px;
+  display: flex;
+  flex-direction: row;
   z-index: $z-startmenu;
 
+   &__sidebar {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    background-color: $xp-light-gray;
+
+    img {
+      width: 24px;
+      height: auto;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 4px;
+  }
+
   &__item {
+    display: flex;
+    align-items: center;
     padding: 6px 12px;
     font-size: 14px;
     cursor: default;
     border-radius: 2px;
+    gap: 8px;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
 
     &:hover {
       background-color: $xp-blue;
