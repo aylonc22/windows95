@@ -1,11 +1,10 @@
 import './StartMenu.scss';
 
-// 🔧 Mock icons (replace with real paths later)
 import windowsIcon from '../../assets/images/sidebar-image.png';
-import linkedinIcon from  '../../assets/svg/LinkedIn.svg';// '../../assets/images/linkedin.png';
-import githubIcon from  '../../assets/svg/GitHub.svg';//'../../assets/images/github.png';
+import linkedinIcon from  '../../assets/svg/LinkedIn.svg';
+import githubIcon from  '../../assets/svg/GitHub.svg';
 import resumeIcon from '../../assets/images/resume.png';
-import shutdownIcon from  '../../assets/images/sidebar-image.png';//'../../assets/images/shutdown.png';
+import shutdownIcon from  '../../assets/images/sidebar-image.png';
 
 export const StartMenu = () => {
   return (

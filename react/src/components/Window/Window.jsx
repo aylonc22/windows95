@@ -20,6 +20,14 @@ export const Window = ({
         <button onClick={() => setMaximized(!maximized)} className="xp-window__close">🗖</button>
         <button onClick={() => close(title)} className="xp-window__close">✕</button>
       </div>
+
+    <div className="xp-window__menubar">
+        <span>File</span>
+        <span>Edit</span>
+        <span>View</span>
+        <span>Help</span>
+    </div>
+
       <div className="xp-window__content">
         {type === 'folder' && Array.isArray(children) ? (
           <div className="xp-window__folder-view">
@@ -34,6 +42,13 @@ export const Window = ({
           <pre className="xp-window__file-view">{children}</pre>
         )}
       </div>
+
+    {type === 'folder' && Array.isArray(children) && (
+    <div className="xp-window__statusbar">
+        {children.length} item{children.length !== 1 ? 's' : ''}, {children.length * 4} KB
+    </div>
+    )}
+
     </div>
   );
 };
