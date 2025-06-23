@@ -5,7 +5,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   font-family: $font-main;
   display: flex;
   flex-direction: column;
@@ -96,7 +95,7 @@
   span {
     cursor: default;
     user-select: none;
-    padding: 0 2px; // ✅ move padding here to make width stable
+    padding: 0 2px;
 
     &:hover {
       background-color: #000080;
