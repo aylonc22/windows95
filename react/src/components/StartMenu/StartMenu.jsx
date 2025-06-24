@@ -13,14 +13,22 @@ export const StartMenu = () => {
         <img src={windowsIcon} alt="Windows Logo" />
       </div>
       <div className="start-menu__list">
-        <div className="start-menu__item">
+        <a
+        href="https://www.linkedin.com/in/aylon-cohen-b01b38232/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="start-menu__item">
           <img src={linkedinIcon} alt="LinkedIn" />
           <span>LinkedIn</span>
-        </div>
-        <div className="start-menu__item">
+        </a>
+        <a
+          href="https://github.com/aylonc22"
+          target="_blank"
+          rel="noopener noreferrer" 
+          className="start-menu__item">
           <img src={githubIcon} alt="GitHub" />
           <span>GitHub</span>
-        </div>
+        </a>
         <div className="start-menu__item">
           <img src={resumeIcon} alt="Resume" />
           <span>Resume</span>

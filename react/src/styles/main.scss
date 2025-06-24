@@ -40,3 +40,13 @@ html, body {
 .z-top {
   z-index: 9999;
 }
+
+a {
+  text-decoration: none;   // remove underline
+  color: inherit;          // inherit text color from parent (default color)
+  cursor: pointer;         // optional: show pointer cursor on hover
+
+  &:hover {
+    text-decoration: underline; // optional: show underline on hover, like XP style
+  }
+}

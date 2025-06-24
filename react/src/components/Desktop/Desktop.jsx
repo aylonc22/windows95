@@ -14,7 +14,7 @@ export const Desktop = ({handleOpenWindow, handleCloseWindow,win,setWindow}) => 
   const children = {
     'Resume': [{title:'Resume', icon:fileIcon}],
     'Games': [{title:'Snake', icon:resumeIcon}, {title:'Mines', icon:resumeIcon}],
-    'My Bio': 'this is some bio',
+    'My Bio': {src:'this is some bio'},
   }
  
   useEffect(()=>{

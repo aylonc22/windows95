@@ -1,3 +1,4 @@
+import { IframeApp } from '../IframeApp/IframeApp';
 import './Window.scss';
 import { useRef, useState } from 'react';
 
@@ -9,6 +10,7 @@ export const Window = ({
   hide,
   children,
 }) => {
+  const [app,setApp] = useState();
   const [maximized, setMaximized] = useState(false);
   const [position, setPosition] = useState({ x: 100, y: 100 });
   const windowRef = useRef(null);
@@ -88,7 +90,7 @@ export const Window = ({
             ))}
           </div>
         ) : (
-          <pre className="xp-window__file-view">{children}</pre>
+          <pre className="xp-window__file-view">{children.url ? <IframeApp src={children.url} title={title}/> : children.src}</pre>
         )}
       </div>
 
@@ -97,7 +99,7 @@ export const Window = ({
         {children.length} item{children.length !== 1 ? 's' : ''}, {children.length * 4} KB
     </div>
     )}
-
+  {app && <Window type={app==='My Bio'?'file':'folder'} children={children[app]} icon={handleWinIcon()} close={handleClose} hide={handleHide} title={app}  handleCloseWindow = {handleCloseWindow}/>}
     </div>
   );
 };
