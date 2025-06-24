@@ -6,7 +6,12 @@ import githubIcon from  '../../assets/svg/GitHub.svg';
 import resumeIcon from '../../assets/images/resume.png';
 import shutdownIcon from  '../../assets/images/sidebar-image.png';
 
-export const StartMenu = () => {
+export const StartMenu = ({handleOpenWindow, setWindow}) => {
+const handleWindow = (win) =>{
+  setWindow(win);
+  handleOpenWindow({title: win, icon: resumeIcon});
+}
+
   return (
     <div className="start-menu">
       <div className="start-menu__sidebar">
@@ -29,7 +34,7 @@ export const StartMenu = () => {
           <img src={githubIcon} alt="GitHub" />
           <span>GitHub</span>
         </a>
-        <div className="start-menu__item">
+        <div onClick={()=>handleWindow("Resume")} className="start-menu__item">
           <img src={resumeIcon} alt="Resume" />
           <span>Resume</span>
         </div>

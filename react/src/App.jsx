@@ -23,7 +23,7 @@ function App() {
   return (
     <div onClick={()=>startOpen && setStartOpen(false)} className="app">
       <Desktop handleOpenWindow={handleOpenWindow}  handleCloseWindow={handleCloseWindow}  win={win} setWindow={(win=>setWindow(win))}/>
-      {startOpen && <StartMenu />}
+      {startOpen && <StartMenu  handleOpenWindow={handleOpenWindow} setWindow={(win=>setWindow(win))}/>}
       <Taskbar onStartClick={() => setStartOpen(!startOpen)} openWindows={windows} setWindow = {(win)=>setWindow(win)}/>
     </div>
   );
