@@ -2,6 +2,7 @@
 import { Desktop } from './components/desktop/Desktop';
 import { StartMenu } from './components/startMenu/StartMenu';
 import { Taskbar } from './components/taskbar/Taskbar';
+import { Windows } from './components/Windows/Windows';
 import './styles/main.scss';
 import { useState } from 'react';
 
@@ -9,6 +10,7 @@ function App() {
   const [startOpen, setStartOpen] = useState(false);
   const [windows,setWindows] = useState([]);
   const [win,setWindow] = useState();
+  const [activeWindow, setActiveWindow] = useState(null);
 
   const handleOpenWindow = (window)=>{
     if(!windows.find((win)=>window.title === win.title)){
@@ -24,7 +26,13 @@ function App() {
     <div onClick={()=>startOpen && setStartOpen(false)} className="app">
       <Desktop handleOpenWindow={handleOpenWindow}  handleCloseWindow={handleCloseWindow}  win={win} setWindow={(win=>setWindow(win))}/>
       {startOpen && <StartMenu  handleOpenWindow={handleOpenWindow} setWindow={(win=>setWindow(win))}/>}
-      <Taskbar onStartClick={() => setStartOpen(!startOpen)} openWindows={windows} setWindow = {(win)=>setWindow(win)}/>
+      <Taskbar onStartClick={() => setStartOpen(!startOpen)} openWindows={windows} setWindows = {(win)=>setWindows(win)}/>
+        <Windows
+          windows={windows}
+          activeWindow={activeWindow}
+          setActiveWindow={setActiveWindow}
+          setWindows={setWindows}
+        />
     </div>
   );
 }

@@ -6,40 +6,19 @@ import resumeIcon from '../../assets/images/resume.png';
 import fileIcon from '../../assets/images/file.png';
 
 import './Desktop.scss';
-import { Window } from '../Window/Window';
 
 export const Desktop = ({handleOpenWindow, handleCloseWindow,win,setWindow}) => {
   const [selected, setSelected] = useState(null);
-  const [app,setApp] = useState(win);
-  const children = {
-    'Resume': [{title:'Resume', icon:fileIcon}],
-    'Games': [{title:'Snake', icon:resumeIcon}, {title:'Mines', icon:resumeIcon}],
-    'My Bio': {src:'this is some bio'},
-  }
  
-  useEffect(()=>{
-    setApp(win);
-  },[win]);
-  const handleDoubleClick = (win) =>{
-    setApp(win);
+  const handleDoubleClick = (win) =>{    
     setWindow(win);
-    handleOpenWindow({title:win, icon:handleWinIcon(win)});
+    handleOpenWindow({title:win, icon:handleWinIcon(win), hide:false});
   }
   
-  const handleClose = (win) =>{
-      setApp();
-      setWindow();
-      handleCloseWindow({title:win});
-  }
 
-  const handleHide = ()=>{
-      setApp();
-      setWindow();
-  }
-
-  const handleWinIcon = (_app=undefined)=>{
-   const temp = _app ? _app : app;
-    switch (temp) {
+  const handleWinIcon = (app=undefined)=>{
+  
+    switch (app) {
       case 'My Bio':
         return myComputerIcon;           
       case 'Resume':
@@ -84,7 +63,6 @@ export const Desktop = ({handleOpenWindow, handleCloseWindow,win,setWindow}) => 
         }}       
       />
 
-      {app && <Window type={app==='My Bio'?'file':'folder'} children={children[app]} icon={handleWinIcon()} close={handleClose} hide={handleHide} title={app}  handleCloseWindow = {handleCloseWindow}/>}
     </div>
   );
 };
