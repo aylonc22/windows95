@@ -14,6 +14,10 @@ function App() {
   const handleOpenWindow = (window)=>{
     if(!windows.find((win)=>window.title === win.title)){
         setWindows(prev=>[...prev,window]);
+    }else{
+       const temp = [...windows];      
+       temp[temp.findIndex(win => win.title === window.title)].hide = false;
+       setWindows(temp);
     }
   }
 

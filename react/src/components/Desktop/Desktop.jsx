@@ -3,11 +3,10 @@ import { Shortcut } from '../Shortcut/Shortcut';
 import myComputerIcon from '../../assets/images/computer.png';
 import folderIcon from '../../assets/images/folder.png';
 import resumeIcon from '../../assets/images/resume.png';
-import fileIcon from '../../assets/images/file.png';
 
 import './Desktop.scss';
 
-export const Desktop = ({handleOpenWindow, handleCloseWindow,win,setWindow}) => {
+export const Desktop = ({handleOpenWindow, setWindow}) => {
   const [selected, setSelected] = useState(null);
  
   const handleDoubleClick = (win) =>{    
