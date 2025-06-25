@@ -8,8 +8,8 @@ import { useState } from 'react';
 
 function App() {
   const [startOpen, setStartOpen] = useState(false);
-  const [windows,setWindows] = useState([]);
-  const [win,setWindow] = useState(); 
+  const [windows,setWindows] = useState([]);  
+  const [activeWindow,setActiveWindow] = useState(null);
 
   const handleOpenWindow = (window)=>{
     if(!windows.find((win)=>window.title === win.title)){
@@ -27,12 +27,14 @@ function App() {
 
   return (
     <div onClick={()=>startOpen && setStartOpen(false)} className="app">
-      <Desktop handleOpenWindow={handleOpenWindow}  handleCloseWindow={handleCloseWindow}  win={win} setWindow={(win=>setWindow(win))}/>
-      {startOpen && <StartMenu  handleOpenWindow={handleOpenWindow} setWindow={(win=>setWindow(win))}/>}
-      <Taskbar onStartClick={() => setStartOpen(!startOpen)} openWindows={windows} setWindows = {(win)=>setWindows(win)}/>
+      <Desktop handleOpenWindow={handleOpenWindow}/>
+      {startOpen && <StartMenu  handleOpenWindow={handleOpenWindow}/>}
+      <Taskbar onStartClick={() => setStartOpen(!startOpen)}  setActiveWindow={setActiveWindow} openWindows={windows} setWindows = {setWindows}/>
         <Windows
-          windows={windows}        
-          setWindows={setWindows}
+        activeWindow={activeWindow}
+        setActiveWindow={setActiveWindow}
+        windows={windows}        
+        setWindows={setWindows}
         />
     </div>
   );

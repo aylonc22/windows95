@@ -18,7 +18,7 @@ const windowContent = {
     { title: 'Mines', icon: resumeIcon }
   ] },
 };
-export const Windows = ({ windows, setWindows }) => {
+export const Windows = ({ windows, activeWindow, setActiveWindow, setWindows }) => {
  
   const handleClose = (title) => {    
     setWindows(prev => prev.filter(win => win.title !== title));      
@@ -44,6 +44,8 @@ export const Windows = ({ windows, setWindows }) => {
             children={data.content}
             close={() => handleClose(title)}
             hide={() => handleHide(title)}
+            isActive={activeWindow === title}
+            onClick={() => setActiveWindow(title)}
           />
         );
       })}
