@@ -18,11 +18,10 @@ const windowContent = {
     { title: 'Mines', icon: resumeIcon }
   ] },
 };
-export const Windows = ({ windows, activeWindow, setActiveWindow, setWindows }) => {
+export const Windows = ({ windows, setWindows }) => {
  
   const handleClose = (title) => {    
-    setWindows(prev => prev.filter(win => win.title !== title));   
-    if (activeWindow === title) setActiveWindow(null);
+    setWindows(prev => prev.filter(win => win.title !== title));      
   };
 
   const handleHide = (title) => {
@@ -34,8 +33,7 @@ export const Windows = ({ windows, activeWindow, setActiveWindow, setWindows }) 
 
   return (
     <>
-      {windows.map(({title,hide}) => {
-        console.log(hide);
+      {windows.map(({title,hide}) => {       
         const data = windowContent[title];       
         return hide? null:(
           <Window

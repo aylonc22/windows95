@@ -9,8 +9,7 @@ import { useState } from 'react';
 function App() {
   const [startOpen, setStartOpen] = useState(false);
   const [windows,setWindows] = useState([]);
-  const [win,setWindow] = useState();
-  const [activeWindow, setActiveWindow] = useState(null);
+  const [win,setWindow] = useState(); 
 
   const handleOpenWindow = (window)=>{
     if(!windows.find((win)=>window.title === win.title)){
@@ -28,9 +27,7 @@ function App() {
       {startOpen && <StartMenu  handleOpenWindow={handleOpenWindow} setWindow={(win=>setWindow(win))}/>}
       <Taskbar onStartClick={() => setStartOpen(!startOpen)} openWindows={windows} setWindows = {(win)=>setWindows(win)}/>
         <Windows
-          windows={windows}
-          activeWindow={activeWindow}
-          setActiveWindow={setActiveWindow}
+          windows={windows}        
           setWindows={setWindows}
         />
     </div>

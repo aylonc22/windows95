@@ -90,7 +90,7 @@ export const Window = ({
             ))}
           </div>
         ) : (
-          <pre className="xp-window__file-view">{children.url ? <IframeApp src={children.url} title={title}/> : children.src}</pre>
+          <pre className="xp-window__file-view">{children}</pre>
         )}
       </div>
 
