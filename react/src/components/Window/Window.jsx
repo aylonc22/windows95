@@ -10,6 +10,7 @@ export const Window = ({
   children,
   isActive,
   onClick,
+  onDoubleClick,
 }) => {
   const [maximized, setMaximized] = useState(false);
   const [position, setPosition] = useState({ x: 100, y: 100 });
@@ -82,7 +83,7 @@ export const Window = ({
         {type === 'folder' && Array.isArray(children) ? (
           <div className="xp-window__folder-view">
             {children.map((item, i) => (
-              <div key={i} className="xp-window__folder-item">
+              <div onDoubleClick={()=>onDoubleClick(item.title)} key={i} className="xp-window__folder-item">
                 <img src={item.icon} alt={item.title} />
                 <span>{item.title}</span>
               </div>

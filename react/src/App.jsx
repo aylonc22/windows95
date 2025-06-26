@@ -31,6 +31,7 @@ function App() {
         setActiveWindow={setActiveWindow}
         windows={windows}        
         setWindows={setWindows}
+        handleOpenWindow = {handleOpenWindow}
         />
     </div>
   );
