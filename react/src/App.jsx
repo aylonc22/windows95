@@ -19,15 +19,11 @@ function App() {
        temp[temp.findIndex(win => win.title === window.title)].hide = false;
        setWindows(temp);
     }
-  }
-
-   const handleCloseWindow = (window)=>{
-    setWindows(prev=>prev.filter((win=> win.title != window.title )));
-  }
+  }  
 
   return (
     <div onClick={()=>startOpen && setStartOpen(false)} className="app">
-      <Desktop handleOpenWindow={handleOpenWindow}/>
+      <Desktop  setActiveWindow={setActiveWindow} handleOpenWindow={handleOpenWindow}/>
       {startOpen && <StartMenu  handleOpenWindow={handleOpenWindow}/>}
       <Taskbar onStartClick={() => setStartOpen(!startOpen)}  setActiveWindow={setActiveWindow} openWindows={windows} setWindows = {setWindows}/>
         <Windows

@@ -6,10 +6,11 @@ import resumeIcon from '../../assets/images/resume.png';
 
 import './Desktop.scss';
 
-export const Desktop = ({handleOpenWindow}) => {
+export const Desktop = ({handleOpenWindow, setActiveWindow}) => {
   const [selected, setSelected] = useState(null);
  
   const handleDoubleClick = (win) =>{       
+    setActiveWindow(win);
     handleOpenWindow({title:win, icon:handleWinIcon(win), hide:false});
   }
   
