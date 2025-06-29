@@ -6,9 +6,8 @@ import githubIcon from  '../../assets/svg/GitHub.svg';
 import resumeIcon from '../../assets/images/resume.png';
 import shutdownIcon from  '../../assets/images/sidebar-image.png';
 
-export const StartMenu = ({handleOpenWindow, setWindow}) => {
-const handleWindow = (win) =>{
-  setWindow(win);
+export const StartMenu = ({handleOpenWindow}) => {
+const handleWindow = (win) =>{  
   handleOpenWindow({title: win, icon: resumeIcon});
 }
 
