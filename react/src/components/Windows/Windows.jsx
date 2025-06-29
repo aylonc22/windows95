@@ -3,6 +3,7 @@ import myComputerIcon from '../../assets/images/computer.png';
 import folderIcon from '../../assets/images/folder.png';
 import resumeIcon from '../../assets/images/resume.png';
 import fileIcon from '../../assets/images/file.png';
+import { SnakeGame } from '../Games/Snake/Snake';
 
 const iconMap = {
   'My Bio': myComputerIcon,
@@ -18,7 +19,7 @@ const windowContent = {
     { title: 'Mines', content: 'This is some bio', icon: resumeIcon,  type: 'file', }
   ] },
   'resume': { title: 'resume', content: 'This is some bio', icon: fileIcon,  type: 'file'},
-  'Snake': { title: 'Snake', content: 'This is some bio', icon: fileIcon,  type: 'file', },
+  'Snake': { title: 'Snake', content: <SnakeGame/>, icon: fileIcon,  type: 'file', },
   'Mines': { title: 'Mines', content: 'This is some bio', icon: fileIcon,  type: 'file', },
 };
 export const Windows = ({ windows, activeWindow, setActiveWindow, setWindows, handleOpenWindow }) => {
