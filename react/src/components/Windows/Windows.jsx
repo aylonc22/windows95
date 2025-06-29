@@ -6,7 +6,7 @@ import fileIcon from '../../assets/images/file.png';
 
 const iconMap = {
   'My Bio': myComputerIcon,
-  'Resume': resumeIcon,
+  'Resume': fileIcon,
   'Games': folderIcon,
 };
 
@@ -36,7 +36,7 @@ export const Windows = ({ windows, activeWindow, setActiveWindow, setWindows, ha
 
   const handleDoubleClick = (title)=>{
      setActiveWindow(title);   
-     handleOpenWindow( { title:title, icon:resumeIcon, hide:false } );    
+     handleOpenWindow( { title:title, icon:iconMap[title] || windowContent[title].icon, hide:false } );    
   }
 
   return (

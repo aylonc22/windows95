@@ -2,7 +2,7 @@ import './Taskbar.scss';
 import windowsIcon from '../../assets/images/win95.png';
 
 export const Taskbar = ({ onStartClick, openWindows = [] ,setWindows, setActiveWindow}) => {
-
+console.log(openWindows);
 const handleOpenWindow = (index) =>{
   const temp = [...openWindows]
  
